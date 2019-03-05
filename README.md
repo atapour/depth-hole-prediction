@@ -90,16 +90,16 @@ This work is created as part of the project published in the following. Note tha
 
 ```
 @Article{abarghouei19gan,
-  author = 	  {Atapour-Abarghouei, A. and Akcay, S. and Payen de La Garanderie, G. and Breckon, T.P.},
-  title = 	  {Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer},
-  journal = 	   { Pattern Recognition},
-  year = 	  {2019},
-  volume = 	   {91},
-  pages = 	   {232-244},
-  month = 	   {July},
-  publisher =      {Elsevier},
-  url = 	   {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei19gan.pdf},
-  doi = 	   {10.1016/j.patcog.2019.02.010},
+  author = {Atapour-Abarghouei, A. and Akcay, S. and Payen de La Garanderie, G. and Breckon, T.P.},
+  title = {Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer},
+  journal = { Pattern Recognition},
+  year = {2019},
+  volume = {91},
+  pages = {232-244},
+  month = {July},
+  publisher = {Elsevier},
+  url = {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei19gan.pdf},
+  doi = {10.1016/j.patcog.2019.02.010},
 }
 
 ```
