@@ -12,7 +12,7 @@ class Arguments():
 
         parser.add_argument('--name', required=True, type=str, help='experiment name')
         parser.add_argument('--phase', default='train', type=str, choices=['train', 'test'], help='determining whether the model is being trained or used for inference. Since this is the train_arguments file, this needs to set to train!!')
-        parser.add_argument('--data_root', default='../../Data/hole_pred_human/hole_prediction', type=str, help='path to data directory.')
+        parser.add_argument('--data_root', required=True, type=str, help='path to data directory.')
         parser.add_argument('--batch_size', default=25, type=int, help='It is the size of your batch.')
         parser.add_argument('--num_epochs', default=500, type=int, help='number of training epochs to run')
         parser.add_argument('--input_nc', default=3, type=int, help='number of channels in the input image')
