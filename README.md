@@ -37,7 +37,7 @@ $ git clone https://github.com/atapour/depth-hole-prediction.git
 $ cd depth-hole-prediction
 ```
 
-* A dataset needs to be prepared to be used for training. In our experiments, we use the [KITTI](http://www.cvlibs.net/datasets/kitti/) dataset. However, any other dataset containing rectified stereo images is suitable for training this model. We have provided a simple python script (`data_processing/data_processing_kitti.py`) that processes the raw KITTI data and generates a data root in accordance with our custom dataset class (`data/aligned_dataset.py`). However, feel free to modify the dataset class to fit your own data structure. Our custom dataset follows the following directory structure:
+* A dataset needs to be prepared to be used for training. In our experiments, we use the [KITTI](http://www.cvlibs.net/datasets/kitti/) dataset. However, any other dataset containing rectified stereo images is suitable for training this model. We have provided a simple, albeit inefficient, python script (`data_processing/data_processing_kitti.py`) that processes the raw KITTI data and generates a data root in accordance with our custom dataset class (`data/aligned_dataset.py`). However, feel free to modify the script or the dataset class to fit your own data structure. Our custom dataset follows the following directory structure:
 
 ```
 Custom Dataset
@@ -53,7 +53,7 @@ Custom Dataset
 │   ├──   ...
 
 ```
-* The training code utilizes [visdom](https://github.com/facebookresearch/visdom) ot display training results and plots. To these, run `python -m visdom.server` and click the URL http://localhost:8097.
+* The training code utilizes [visdom](https://github.com/facebookresearch/visdom) to display training results and plots, in order to do which simply run `python -m visdom.server` and click the URL http://localhost:8097.
 
 * To train the model, run the following command:
 
@@ -90,17 +90,16 @@ This work is created as part of the project published in the following. Note tha
 
 ```
 @Article{abarghouei19gan,
-  author = 	 {Atapour-Abarghouei, A. and Akcay, S. and Payen de La Garanderie, G. and Breckon, T.P.},
-  title = 	 {Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer},
-  journal = 	 { Pattern Recognition},
-  year = 	 {2019},
-  volume = 	 {91},
-  pages = 	 {232-244},
-  month = 	 {July},
-  publisher =    {Elsevier},
-  keywords =  {depth filling, RGB-D, hole filling, surface completion, 3D completion, depth completion, depth map, disparity hole filling, GAN, generative adversarial network, Wasserstein GAN},
-  url = 	 {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei19gan.pdf},
-  doi = 	 {10.1016/j.patcog.2019.02.010},
+  author = 	  {Atapour-Abarghouei, A. and Akcay, S. and Payen de La Garanderie, G. and Breckon, T.P.},
+  title = 	  {Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer},
+  journal = 	   { Pattern Recognition},
+  year = 	  {2019},
+  volume = 	   {91},
+  pages = 	   {232-244},
+  month = 	   {July},
+  publisher =      {Elsevier},
+  url = 	   {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei19gan.pdf},
+  doi = 	   {10.1016/j.patcog.2019.02.010},
 }
 
 ```
