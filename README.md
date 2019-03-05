@@ -4,7 +4,7 @@ Requires an NVIDIA GPU, Python 3, [CUDA CuDNN](https://developer.nvidia.com/cudn
 <br>
 Other libraries such as [visdom](https://github.com/facebookresearch/visdom) and [colorama](https://pypi.org/project/colorama/) are also optionally used in the code.
 
-![General Pipeline](https://github.com/atapour/hole_prediction.dev/blob/master/imgs/architecture.png)
+![General Pipeline](https://github.com/atapour/depth-hole-prediction/blob/master/imgs/architecture.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -13,16 +13,14 @@ Other libraries such as [visdom](https://github.com/facebookresearch/visdom) and
 
 ## Method:
 
-_"Depth images naturally sensed in the real world through active or passive depth sensing devices are often corrupted or contain large missing regions (holes). This is why in many learning based applications using depth images (e.g., depth completion), synthetic images are used. In such a scenario, synthetic pixel-perfect depth images can be used as ground truth but corrupted depth images (with holes) of the same scenes are required as inputs. Rather than randomly cutting out sections of the image, we opt for creating realistic holes with the characteristics of those found in real-world depth images, which occur in stereo correspondence due to the existence of featureless or shiny surfaces, unclear object separation and distant objects, among others. To produce these semantically meaningful holes, a separate model is needed to predict depth holes by means of pixel-wise classification. The objective is to produce a hole mask, which represents regions in the depth image likely to contain holes. Since within synthetic datasets, only complete pixel-perfect depth is available, simulating corrupted depth, similar to what is naturally sensed in the real world, is important."_
+_"Depth images naturally sensed in the real world through active or passive depth sensing devices are often corrupted or contain large missing regions (holes). This is why in many learning based applications using depth images (e.g., depth completion), synthetic images are used. In such a scenario, synthetic pixel-perfect depth images can be used as ground truth but corrupted depth images (with holes) of the same scenes are required as inputs. Rather than randomly cutting out sections of the image, we opt for creating realistic holes with the characteristics of those found in real-world depth images, which occur in stereo correspondence due to the existence of featureless or shiny surfaces, unclear object separation and distant objects, among others. To produce these semantically meaningful holes, a model is needed to predict depth holes by means of pixel-wise classification. The objective is to produce a hole mask, which represents regions in the depth image likely to contain holes. Since within synthetic datasets, only complete pixel-perfect depth is available, simulating corrupted depth, similar to what is naturally sensed in the real world, is important."_
 
-
-Things need to change from this point on:
-[[Atapour-Abarghouei and Breckon, Proc. CVPR, 2018](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)]
+[[Atapour-Abarghouei and Breckon, Pattern Recognition, 2019](http://breckon.eu/toby/publications/papers/abarghouei19gan.pdf)]
 
 ---
 
 
-![](https://github.com/atapour/hole_prediction.dev/blob/master/imgs/sampleResults.png)
+![](https://github.com/atapour/depth-hole-prediction/blob/master/imgs/sampleResults.png)
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -35,8 +33,8 @@ Things need to change from this point on:
 * First and foremost, this repository needs to be cloned:
 
 ```
-$ git clone https://github.com/atapour/hole_prediction.dev.git
-$ cd hole_prediction.dev
+$ git clone https://github.com/atapour/depth-hole-prediction.git
+$ cd depth-hole-prediction
 ```
 
 * A dataset needs to be prepared to be used for training. In our experiments, we use the [KITTI](http://www.cvlibs.net/datasets/kitti/) dataset. However, any other dataset containing rectified stereo images is suitable for training this model. We have provided a simple python script (`data_processing/data_processing_kitti.py`) that processes the raw KITTI data and generates a data root in accordance with our custom dataset class (`data/aligned_dataset.py`). However, feel free to modify the dataset class to fit your own data structure. Our custom dataset follows the following directory structure:
@@ -83,23 +81,26 @@ The output results are written in a directory taken as an argument to the test h
 
 ---
 
-This work is created as part of the project published in the following. Note that this code is not the entire code for the project, but only the depth prediction project with an improved architecture.
+This work is created as part of the project published in the following. Note that this code is not the entire code for the project, but only the depth prediction component redesigned with an improved architecture.
 
 ## Reference:
 
-[Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation via Image Style Transfer](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)
-(A. Atapour-Abarghouei, T.P. Breckon), In Proc. Conf. Computer Vision and Pattern Recognition, 2018. [[pdf](http://breckon.eu/toby/publications/papers/abarghouei18monocular.pdf)] [[demo](https://vimeo.com/260393753)]
+[Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer](http://breckon.eu/toby/publications/papers/abarghouei19gan.pdf)
+(A. Atapour-Abarghouei, T.P. Breckon), In Pattern Recognition, 2019. [[pdf](http://breckon.eu/toby/publications/papers/abarghouei19gan.pdf)]
 
 ```
-@InProceedings{abarghouei18monocular,
-  author = 		{Atapour-Abarghouei, A. and Breckon, T.P.},
-  title = 		{Real-Time Monocular Depth Estimation using Synthetic Data with Domain Adaptation},
-  booktitle = 	{Proc. Computer Vision and Pattern Recognition},
-  pages =		{1-8},
-  year = 		{2018},
-  month = 		{June},
-  publisher = 	{IEEE},
-  keywords = 		{monocular depth, generative adversarial network, GAN, depth map, disparity, depth from single image},
+@Article{abarghouei19gan,
+  author = 	 {Atapour-Abarghouei, A. and Akcay, S. and Payen de La Garanderie, G. and Breckon, T.P.},
+  title = 	 {Generative Adversarial Framework for Depth Filling via Wasserstein Metric, Cosine Transform and Domain Transfer},
+  journal = 	 { Pattern Recognition},
+  year = 	 {2019},
+  volume = 	 {91},
+  pages = 	 {232-244},
+  month = 	 {July},
+  publisher =    {Elsevier},
+  keywords =  {depth filling, RGB-D, hole filling, surface completion, 3D completion, depth completion, depth map, disparity hole filling, GAN, generative adversarial network, Wasserstein GAN},
+  url = 	 {http://community.dur.ac.uk/toby.breckon/publications/papers/abarghouei19gan.pdf},
+  doi = 	 {10.1016/j.patcog.2019.02.010},
 }
 
 ```
