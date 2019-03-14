@@ -19,7 +19,8 @@ data_loader = create_loader(args)
 dataset = data_loader.load_data()
 dataset_size = len(data_loader)
 
-print('{}{}{}{}{}{}{}{}'.format(blue, 'There are a total number of ', red, dataset_size, ' images', blue, ' in training set.', reset))
+nl = '\n'
+print(f'{blue}There are a total number of {red}{dataset_size}{blue} frames in the data set.{reset}{nl}')
 
 model = create_model(args)
 model.set_up(args)

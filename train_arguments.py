@@ -60,8 +60,8 @@ class Arguments():
 
         txt = '\n'
 
-        txt += '{}The default argumnets are displayed in blue!{}\n'.format(blue, reset)
-        txt += '{}The specified argumnets are displayed in magenta!{}\n'.format(magenta, reset)
+        txt += '{}The default arguments are displayed in blue!{}\n'.format(blue, reset)
+        txt += '{}The specified arguments are displayed in magenta!{}\n'.format(magenta, reset)
 
 
         txt += '\n'
