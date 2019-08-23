@@ -29,9 +29,7 @@ print('')
 print('{}{}{}'.format(red, 'Processing the images has begun..', reset))
 print('')
 
-for epoch in range(0, args.num_epochs):
-
-    for j, data in enumerate(data_loader):
+for j, data in enumerate(data_loader):
 
         model.assign_inputs(data)
         model.test()

@@ -15,7 +15,6 @@ class Arguments():
         parser.add_argument('--results_path', type=str, default='./results', help='during inference, the path to save the results. The directory is not created and must already be there.')
         parser.add_argument('--data_root', default='./example', type=str, help='path to data directory, where the input RGB image are.')
         parser.add_argument('--batch_size', default=25, type=int, help='It is the size of your batch.')
-        parser.add_argument('--num_epochs', default=500, type=int, help='number of training epochs to run')
         parser.add_argument('--input_nc', default=3, type=int, help='number of channels in the input image')
         parser.add_argument('--output_nc', default=64, type=int, help='number of channels in the output image.')
         parser.add_argument('--num_downs', default=8, type=int, help='number of downscaling done within the architecture')
