@@ -1,11 +1,18 @@
-import time
-import os
 import ntpath
+import os
+import sys
+import time
+
+import cv2
 import numpy as np
 import torch
 import torch.nn as nn
 from PIL import Image
-import cv2
+
+if sys.version_info[0] == 2:
+    VisdomExceptionBase = Exception
+else:
+    VisdomExceptionBase = ConnectionError
 
 # this class is used to print and display results using Visdom based on https://github.com/junyanz/pytorch-CycleGAN-and-pix2pix
 class Display():
